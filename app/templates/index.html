@@ -1,16 +1,15 @@
 <html>
     <head>
+        {% if title %}
+        <title>{{ title }} - Microblog</title>
+        {% else %}
         <title>Welcome to Microblog</title>
+        {% endif %}
     </head>
     <body>
-        <h1>Hi, TJ!</h1>
-	<div>
-	    <img src="../images/img.jpg" alt="Sample image", height="500", weight="500">
-	    <img src="../images/img.jpg" alt="Sample image 2", height="500", weight="500">
-	</div>
-	<div>
-            <button type="button">Click Me!</button>
-            <button type="button">Click Me!</button>
-        </div>
+        <h1>Hi, {{ user.username }}!</h1>
+        {% for post in posts %}
+        <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+        {% endfor %}
     </body>
 </html>
